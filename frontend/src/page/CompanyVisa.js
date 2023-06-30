@@ -12,7 +12,7 @@ function CompanyVisa() {
 
     const loadUFirms = async () => {
         const result = await axios.get(url);
-        console.log(result)
+        console.log(result.data)
         setFirms(result.data)
     }
 
@@ -32,8 +32,8 @@ function CompanyVisa() {
                     firms.map((firm, index) => (
                         <tr>
                             <th scope="row" key={index}>{index + 1}</th>
-                            <td>{firm.firmName}</td>
-                            <td>{firm.count}</td>
+                            <td>{firm.auditingAccountingFirm}</td>
+                            <td>{firm.companyList.length}</td>
                         </tr>
                     ))
                 }
