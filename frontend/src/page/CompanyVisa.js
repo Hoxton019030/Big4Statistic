@@ -13,12 +13,13 @@ function CompanyVisa() {
     const loadUFirms = async () => {
         const result = await axios.get(url);
         console.log(result.data)
-        setFirms(result.data)
+        setFirms(result.data.sort((a,b)=>  b.companyList.length - a.companyList.length))
     }
+
 
     return (
         <div>
-            <h1>會計師事務所上市櫃公司簽證數量</h1>
+            <h1>會計師事務所上市公司/公開發行簽證數量</h1>
             <table className="table">
                 <thead>
                 <tr>
