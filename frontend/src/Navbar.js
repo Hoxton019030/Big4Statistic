@@ -11,7 +11,7 @@ function Navbar(){
             </button>
             <div className="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul className="navbar-nav">
-                    <li className="nav-item active">
+                    <li className="nav-item">
                         <Link className="nav-link" to="/">各事務所上市公司/公開發行簽證統計 <span className="sr-only"></span></Link>
                     </li>
                     <li className="nav-item">
@@ -19,6 +19,9 @@ function Navbar(){
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/profit">各事務所簽約公司獲利能力比較</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/profit">各事務所簽約公司</Link>
                     </li>
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"

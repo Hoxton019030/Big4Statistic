@@ -33,7 +33,7 @@ function CompanyVisa() {
                 {
                     firms.map((firm, index) => (
                         <tr key={index}>
-                            <th scope="row">{index + 1}</th>
+                            <th scope="row">{index+1}</th>
                             <td>{firm.auditingAccountingFirm}</td>
                             <td>{firm.companyList.length}</td>
                         </tr>

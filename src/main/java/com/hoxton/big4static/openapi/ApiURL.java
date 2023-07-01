@@ -8,7 +8,11 @@ public enum ApiURL {
     /**
      * 公開發行公司基本資料
      */
-    PUBLICLY_TRADED_COMPANY_BASIC_INFORMATION("/opendata/t187ap03_P");
+    PUBLICLY_TRADED_COMPANY_BASIC_INFORMATION("/opendata/t187ap03_P"),
+    VIOLATES_INFORMATION("/opendata/t187ap23_L"),
+    PENALTY_CASES("/opendata/t187ap22_L")
+    ;
+
 
 
     ApiURL(String value) {
