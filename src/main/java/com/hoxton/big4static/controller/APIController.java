@@ -1,9 +1,7 @@
 package com.hoxton.big4static.controller;
 
 import com.hoxton.big4static.dao.OpenAPIDao;
-import com.hoxton.big4static.pojo.Company;
 import com.hoxton.big4static.response.FirmCompany;
-import com.hoxton.big4static.response.FirmResponse;
 import com.hoxton.big4static.service.APIService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
@@ -14,8 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor

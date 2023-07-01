@@ -2,19 +2,17 @@ import axios from "axios";
 import {useEffect, useState} from "react";
 
 function CompanyList() {
-    const url ="http://localhost:8080/company"
+    const url = "http://localhost:8080/company"
 
-    const [firms,setFirms] = useState([]);
-    useEffect(()=>{
+    const [firms, setFirms] = useState([]);
+    useEffect(() => {
         loadFirms();
-    },[])
-    const loadFirms =  async () =>{
-        const result =await axios.get(url);
+    }, [])
+    const loadFirms = async () => {
+        const result = await axios.get(url);
         setFirms(result.data)
-        setFirms(result.data.sort((a,b)=>  b.companyList.length - a.companyList.length))
+        setFirms(result.data.sort((a, b) => b.companyList.length - a.companyList.length))
     }
-
-
 
 
     return (
@@ -23,11 +21,12 @@ function CompanyList() {
         <div>
             <div className="accordion" id="accordionExample">
 
-                {firms.map((value, index, array)=>(
+                {firms.map((value, index, array) => (
                     <div className="card">
                         <div className="card-header" id="headingOne">
                             <h2 className="mb-0">
-                                <button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                                <button className="btn btn-link btn-block text-left" type="button"
+                                        data-toggle="collapse"
                                         data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                     {value.auditingAccountingFirm}
                                 </button>
@@ -37,8 +36,11 @@ function CompanyList() {
                         <div id="collapseOne" className="collapse show" aria-labelledby="headingOne"
                              data-parent="#accordionExample">
                             <div className="card-body">
-                                Some placeholder content for the first accordion panel. This panel is shown by default,
-                                thanks to the <code>.show</code> class.
+                                {value.companyList.map((value) => (
+                                    <div>
+                                        {value.companyName}
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
