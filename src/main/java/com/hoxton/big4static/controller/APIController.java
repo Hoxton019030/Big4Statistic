@@ -10,13 +10,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@CrossOrigin(value = {"http://localhost:3000", "http://128.199.207.152:8080"})
+@RequestMapping("api")
+@CrossOrigin(value = {"http://localhost:3000", "http://128.199.207.152:9000"})
 public class APIController {
 
     private final APIService apiService;
