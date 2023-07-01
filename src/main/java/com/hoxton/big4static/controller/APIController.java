@@ -26,7 +26,7 @@ public class APIController {
 
 
     @GetMapping("/company")
-    @CrossOrigin("http://localhost:3001")
+    @CrossOrigin("http://localhost:3000")
     @Cacheable(value = "listCache")
     public ResponseEntity<?> test(){
         ArrayList<FirmCompany> firmVisaCompanyList = apiService.getFirmVisaCompanyList();
