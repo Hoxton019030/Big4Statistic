@@ -14,6 +14,7 @@ function CompanyVisa() {
         const result = await axios.get(url);
         console.log(result.data)
         setFirms(result.data.sort((a,b)=>  b.companyList.length - a.companyList.length))
+        // setFirms(result.data)
     }
 
 
@@ -31,8 +32,8 @@ function CompanyVisa() {
                 <tbody>
                 {
                     firms.map((firm, index) => (
-                        <tr>
-                            <th scope="row" key={index}>{index + 1}</th>
+                        <tr key={index}>
+                            <th scope="row">{index + 1}</th>
                             <td>{firm.auditingAccountingFirm}</td>
                             <td>{firm.companyList.length}</td>
                         </tr>

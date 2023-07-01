@@ -10,8 +10,12 @@ import lombok.NoArgsConstructor;
 public class JsonUtil {
 
 
-    public static JsonNode getJsonNode(String jsonString) throws JsonProcessingException {
+    public static JsonNode getJsonNode(String jsonString) {
         ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readTree(jsonString);
+        try {
+            return objectMapper.readTree(jsonString);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

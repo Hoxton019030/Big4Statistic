@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class Test {
-    String firmName;
+public class FirmCompany {
+    String auditingAccountingFirm;
     List<Company> companyList;
 }

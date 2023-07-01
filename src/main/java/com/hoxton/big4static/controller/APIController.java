@@ -1,18 +1,20 @@
 package com.hoxton.big4static.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.hoxton.big4static.dao.OpenAPIDao;
+import com.hoxton.big4static.pojo.Company;
+import com.hoxton.big4static.response.FirmCompany;
 import com.hoxton.big4static.response.FirmResponse;
 import com.hoxton.big4static.service.APIService;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -20,19 +22,16 @@ import java.util.List;
 public class APIController {
 
     private final APIService apiService;
+    private final OpenAPIDao openAPIDao;
+
 
     @GetMapping("/company")
-    @CrossOrigin("http://localhost:3000")
-    public ResponseEntity<List<FirmResponse>> getAllCompanyStatistic() throws MalformedURLException, JsonProcessingException {
-        List<FirmResponse> allCompanyStatistic = apiService.getAllCompanyStatistic();
-        return  ResponseEntity.ok().body(allCompanyStatistic);
+    @CrossOrigin("http://localhost:3001")
+    @Cacheable(value = "listCache")
+    public ResponseEntity<?> test(){
+        ArrayList<FirmCompany> firmVisaCompanyList = apiService.getFirmVisaCompanyList();
+        return ResponseEntity.status(HttpStatus.OK).body(firmVisaCompanyList);
     }
 }
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
-class People{
-    String name;
-    int age;
-}
+
