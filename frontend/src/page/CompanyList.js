@@ -28,14 +28,14 @@ function CompanyList() {
                             <h2 className="mb-1">
                                 <button className="btn btn-link btn-block text-left" type="button"
                                         data-toggle="collapse"
-                                        data-target="#collapseOne1" aria-expanded="true" aria-controls="collapseOne"
+                                        data-target={`#collapseOne${index}`} aria-expanded="true" aria-controls="collapseOne"
                                 >
                                     {value.auditingAccountingFirm}
                                 </button>
                             </h2>
                         </div>
 
-                        <div id="collapseOne1" className="collapse" aria-labelledby="headingOne"
+                        <div id={`collapseOne${index}`} className="collapse" aria-labelledby="headingOne"
                              data-parent="#accordionExample">
                             <div className="card-body">
                                 {value.companyList.map((value) => (
