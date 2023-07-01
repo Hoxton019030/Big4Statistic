@@ -15,6 +15,9 @@ function Navbar(){
                         <Link className="nav-link" to="/">各事務所上市公司/公開發行簽證統計 <span className="sr-only"></span></Link>
                     </li>
                     <li className="nav-item">
+                        <Link className="nav-link" to="/company">各事務所簽約公司一覽表</Link>
+                    </li>
+                    <li className="nav-item">
                         <Link className="nav-link" to="/profit">各事務所簽約公司獲利能力比較</Link>
                     </li>
                     <li className="nav-item dropdown">
