@@ -3,7 +3,8 @@ import axios from "axios";
 
 
 function CompanyVisa() {
-    let url = "http://localhost:8080/company"
+    const baseURL = process.env.REACT_APP_API_PORT
+    let url = baseURL + "company"
 
     const [firms, setFirms] = useState([]);
     useEffect(() => {
@@ -12,8 +13,7 @@ function CompanyVisa() {
 
     const loadUFirms = async () => {
         const result = await axios.get(url);
-        console.log(result.data)
-        setFirms(result.data.sort((a,b)=>  b.companyList.length - a.companyList.length))
+        setFirms(result.data.sort((a, b) => b.companyList.length - a.companyList.length))
         // setFirms(result.data)
     }
 
@@ -21,6 +21,7 @@ function CompanyVisa() {
     return (
         <div>
             <h1>會計師事務所上市公司/公開發行簽證數量</h1>
+
             <table className="table">
                 <thead>
                 <tr>
@@ -33,7 +34,7 @@ function CompanyVisa() {
                 {
                     firms.map((firm, index) => (
                         <tr key={index}>
-                            <th scope="row">{index+1}</th>
+                            <th scope="row">{index + 1}</th>
                             <td>{firm.auditingAccountingFirm}</td>
                             <td>{firm.companyList.length}</td>
                         </tr>

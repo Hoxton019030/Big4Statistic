@@ -3,7 +3,8 @@ import {useEffect, useState} from "react";
 
 function CompanyAverageProfit() {
 
-    const profitURL = "http://localhost:8080/profit"
+    const baseURL=process.env.REACT_APP_API_PORT
+    const profitURL = baseURL+"profit"
 
     const [firms, setFirms] = useState([])
 
@@ -43,6 +44,8 @@ function CompanyAverageProfit() {
                                     <th scope="col">編號</th>
                                     <th scope="col">公司名稱</th>
                                     <th scope="col">營業收入(以百萬計)</th>
+                                    <th scope="col">稅前收入毛利率</th>
+                                    <th scope="col">稅後收入毛利率</th>
                                     <th scope="col">財報日期</th>
                                 </tr>
                                 </thead>
@@ -52,7 +55,9 @@ function CompanyAverageProfit() {
                                         <tr key={index + 1}>
                                             <th className="col-xl-1" scope="row">{index + 1}</th>
                                             <td className="col-xl-1">{value.companyName} </td>
-                                            <td>{value.operatingRevenue}</td>
+                                            <td>{value.operatingRevenue.toLocaleString()}</td>
+                                            <td>{value.preTaxNetProfitMargin}%</td>
+                                            <td>{value.afterTaxNetProfitMargin}%</td>
                                             <td className="col-xl-1">{value.reportDate}</td>
                                         </tr>
                                     ))}

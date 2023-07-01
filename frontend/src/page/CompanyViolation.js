@@ -3,8 +3,8 @@ import {useEffect, useState} from "react";
 
 function CompanyViolation() {
 
-
-    const url = "http://localhost:8080/punish"
+    const baseURL=process.env.REACT_APP_API_PORT
+    const url = baseURL+"punish"
 
     const [firms, setFirms] = useState([])
 
@@ -12,7 +12,6 @@ function CompanyViolation() {
         loadFirms();
     }, [])
     const loadFirms = async () => {
-        console.log(1)
         const result = await axios.get(url);
         // setFirms(result.data)
         setFirms(result.data.sort((a, b) => b.punishEventList.length - a.punishEventList.length))

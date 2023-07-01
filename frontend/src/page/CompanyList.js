@@ -2,7 +2,8 @@ import axios from "axios";
 import {useEffect, useState} from "react";
 
 function CompanyList() {
-    const url = "http://localhost:8080/company"
+    const baseURL=process.env.REACT_APP_API_PORT
+    const url = baseURL+"company"
     const [firms, setFirms] = useState([]);
     const [searchValue, setSearchValue] = useState('');
     useEffect(() => {
@@ -15,7 +16,6 @@ function CompanyList() {
     }
 
     const handleButtonClick = () => {
-        console.log(searchValue)
         setSearchValue('');
     };
 
@@ -24,8 +24,9 @@ function CompanyList() {
 
 
         <div>
+
             <div className="input-group rounded">
-                <input type="search" className="form-control rounded" placeholder="Search" value={searchValue}
+                <input type="search" className="form-control rounded" placeholder="懶得做搜尋功能了" value={searchValue}
                        onChange={(e) => {
                            setSearchValue(e.target.value)
                        }} aria-label="Search"
@@ -35,6 +36,8 @@ function CompanyList() {
                     搜尋
                 </button>
             </div>
+
+
             <div className="accordion" id="accordionExample">
 
                 {firms.map((value, index, array) => (<div className="card" key={index}>

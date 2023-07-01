@@ -12,7 +12,7 @@ function Navbar(){
             <div className="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul className="navbar-nav navbar">
                     <li className="nav-item">
-                        <Link className="nav-link" to="/">各事務所上市公司/公開發行簽證統計 <span className="sr-only"></span></Link>
+                        <Link className="nav-link" to="/statistics">各事務所上市公司/公開發行簽證統計 <span className="sr-only"></span></Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/company">各事務所簽約公司一覽表</Link>
@@ -23,17 +23,17 @@ function Navbar(){
                     <li className="nav-item">
                         <Link className="nav-link" to="/violation">各事務所簽約公司違約情形一覽</Link>
                     </li>
-                    <li className="nav-item dropdown">
-                        <Link className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown link
-                        </Link>
-                        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a className="dropdown-item" href="#">Actddion</a>
-                            <a className="dropdown-item" href="#">Another action</a>
-                            <a className="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>
+                    {/*<li className="nav-item dropdown">*/}
+                    {/*    <Link className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"*/}
+                    {/*       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">*/}
+                    {/*        Dropdown link*/}
+                    {/*    </Link>*/}
+                    {/*    <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">*/}
+                    {/*        <a className="dropdown-item" href="#">Actddion</a>*/}
+                    {/*        <a className="dropdown-item" href="#">Another action</a>*/}
+                    {/*        <a className="dropdown-item" href="#">Something else here</a>*/}
+                    {/*    </div>*/}
+                    {/*</li>*/}
                 </ul>
             </div>
         </nav>
