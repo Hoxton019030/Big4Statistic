@@ -45,7 +45,7 @@ function CompanyList() {
                                     data-target={`#collapseOne${index}`} aria-expanded="true"
                                     aria-controls="collapseOne"
                             >
-                                {value.auditingAccountingFirm}
+                                {value.auditingAccountingFirm}({value.companyList.length})
                             </button>
                         </h2>
                     </div>

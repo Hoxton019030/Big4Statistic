@@ -1,6 +1,6 @@
 package com.hoxton.big4static.openapi;
 
-public enum ApiURL {
+public enum APIURL {
     /**
      * 上市公司基本資料
      */
@@ -9,13 +9,25 @@ public enum ApiURL {
      * 公開發行公司基本資料
      */
     PUBLICLY_TRADED_COMPANY_BASIC_INFORMATION("/opendata/t187ap03_P"),
+    /**
+     * "上市公司違反資訊申報、重大訊息及說明記者會規定專區"
+     */
     VIOLATES_INFORMATION("/opendata/t187ap23_L"),
-    PENALTY_CASES("/opendata/t187ap22_L")
+    /**
+     * 上市公司金管會證券期貨局裁罰案件專區
+     */
+    PENALTY_CASES("/opendata/t187ap22_L"),
+
+
+    /**
+     * 上市公司營益分析查詢彙總表(全體公司彙總報表)
+     */
+    PROFIT_ANALYSIS("/opendata/t187ap17_L")
     ;
 
 
 
-    ApiURL(String value) {
+    APIURL(String value) {
         this.value = value;
     }
 

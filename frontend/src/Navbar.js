@@ -10,7 +10,7 @@ function Navbar(){
                 <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul className="navbar-nav">
+                <ul className="navbar-nav navbar">
                     <li className="nav-item">
                         <Link className="nav-link" to="/">各事務所上市公司/公開發行簽證統計 <span className="sr-only"></span></Link>
                     </li>
@@ -21,13 +21,13 @@ function Navbar(){
                         <Link className="nav-link" to="/profit">各事務所簽約公司獲利能力比較</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/profit">各事務所簽約公司</Link>
+                        <Link className="nav-link" to="/violation">各事務所簽約公司違約情形一覽</Link>
                     </li>
                     <li className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                        <Link className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Dropdown link
-                        </a>
+                        </Link>
                         <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a className="dropdown-item" href="#">Actddion</a>
                             <a className="dropdown-item" href="#">Another action</a>

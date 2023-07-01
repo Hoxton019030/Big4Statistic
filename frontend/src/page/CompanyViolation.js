@@ -1,24 +1,27 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
 
-function CompanyAverageProfit() {
+function CompanyViolation() {
 
-    const profitURL = "http://localhost:8080/profit"
+
+    const url = "http://localhost:8080/punish"
 
     const [firms, setFirms] = useState([])
 
     useEffect(() => {
-        loadFirms()
+        loadFirms();
     }, [])
-
     const loadFirms = async () => {
-        const response = await axios.get(profitURL);
-        setFirms(response.data.sort((a, b) => b.companyProfitList.length - a.companyProfitList.length))
+        console.log(1)
+        const result = await axios.get(url);
+        // setFirms(result.data)
+        setFirms(result.data.sort((a, b) => b.punishEventList.length - a.punishEventList.length))
     }
+
 
     return (
         <div>
-            <h1>各事務所簽約公司獲利能力</h1>
+            <h1>經證券期貨局裁罰案件與違反資訊申報、重大訊息及說明記者會規定</h1>
             <div className="accordion" id="accordionExample">
 
                 {firms.map((value, index, array) => (<div className="card" key={index}>
@@ -29,7 +32,7 @@ function CompanyAverageProfit() {
                                     data-target={`#collapseOne${index}`} aria-expanded="true"
                                     aria-controls="collapseOne"
                             >
-                                {value.auditingAccountingFirm}({value.companyProfitList.length})
+                                {value.auditingAccountingFirm}({value.punishEventList.length})
                             </button>
                         </h2>
                     </div>
@@ -42,18 +45,18 @@ function CompanyAverageProfit() {
                                 <tr>
                                     <th scope="col">編號</th>
                                     <th scope="col">公司名稱</th>
-                                    <th scope="col">營業收入(以百萬計)</th>
-                                    <th scope="col">財報日期</th>
+                                    <th scope="col">違規事由</th>
+                                    <th scope="col">發函日期</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {value.companyProfitList.sort((a, b) => b.operatingRevenue - a.operatingRevenue).map((value, index) =>
+                                {value.punishEventList.map((value, index) =>
                                     (
                                         <tr key={index + 1}>
                                             <th className="col-xl-1" scope="row">{index + 1}</th>
                                             <td className="col-xl-1">{value.companyName} </td>
-                                            <td>{value.operatingRevenue}</td>
-                                            <td className="col-xl-1">{value.reportDate}</td>
+                                            <td>{value.violationReason}</td>
+                                            <td className="col-xl-1">{value.letterDate}</td>
                                         </tr>
                                     ))}
                                 </tbody>
@@ -64,8 +67,7 @@ function CompanyAverageProfit() {
                     </div>
                 </div>))}
             </div>
-        </div>
-    )
+        </div>)
 }
 
-export default CompanyAverageProfit;
+export default CompanyViolation;
